@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { NewsTile } from "./components";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <div className="tvp">
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+            </div>
+            <div className="tvn">
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+                <NewsTile
+                    title="Szczepionki przeciw COVID-19 dotarły do wszystkich hurtowni farmaceutycznych"
+                    imgSrc="https://s5.tvp.pl/images2/5/4/2/uid_54229f847cfcf94c901b154b6beb0f651608991772642_width_907_play_0_pos_0_gs_0_height_515_waznosc-pierwszej-partii-szczepionek-minie-31-grudnia-fot-shutterstockstockmediaseller.jpg"
+                    articleUrl="idk"
+                />
+            </div>
+        </div>
+    );
 }
 
 export default App;

@@ -1,38 +1,92 @@
 .App {
-  text-align: center;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "tvn tvp";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tvp {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    background-color: brown;
+}
+.tvn {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    background-color: burlywood;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+    width: 14em;
+    border-radius: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1em;
+    color: #000000;
+    text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+    border-radius: 100px;
+    background-color: chartreuse;
+    padding: 0.4em 1em;
+    transition: 0.2s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p:hover {
+    transition: 0.2s ease-in-out;
+    background-color: #74e700;
+}
+
+button {
+    position: relative;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 0px 26px 3px rgba(0, 0, 0, 0.15);
+    margin: 2em;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: none;
+    width: 80%;
+    height: 10rem;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(0.993);
+}
+
+h2 {
+    margin: -2rem 0 0 0;
+    font-size: 20px;
+    text-align: left;
+    padding: 1em;
+    display: inline;
+    color: #3c3c3c;
+}
+
+@media screen and (max-width: 1250px) {
+    h2 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    img {
+        width: 10em;
+    }
+    h2 {
+        font-size: 12px;
+    }
 }

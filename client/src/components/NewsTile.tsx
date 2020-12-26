@@ -12,7 +12,7 @@ const NewsTile: React.FC<INewsTypes> = ({ title, imgSrc, articleUrl }) => {
         <button>
             <img src={imgSrc} alt={title} />
             <h2>{title}</h2>
-            <a href={articleUrl}>
+            <a href={articleUrl} target="_blank" rel="noreferrer">
                 <p>Przeczytaj</p>
             </a>
         </button>

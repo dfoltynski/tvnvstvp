@@ -21,6 +21,7 @@
 }
 
 img {
+    max-height: 10em;
     width: 14em;
     border-radius: 20px;
 }
@@ -58,7 +59,7 @@ button {
     border-radius: 15px;
     border: none;
     width: 80%;
-    height: 10rem;
+    min-height: 10rem;
     transition: 0.2s ease-in-out;
 }
 

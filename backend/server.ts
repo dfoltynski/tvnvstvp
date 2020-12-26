@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
+import cors from "cors";
 import puppeteer from "puppeteer";
 const scrollPageToBottom = require("puppeteer-autoscroll-down");
 
@@ -9,42 +10,22 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors());
+
 app.get(
     "/news",
     async (req: Request, res: Response): Promise<void> => {
         const getFromTVN = async () => {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
-            await page.goto("https://tvn24.pl/", { waitUntil: "load" });
+            await page.goto("https://tvn24.pl/polska", { waitUntil: "load" });
 
-            // headings[0] - top story heading
-
+            // get all visible headings from tvn/polska
             let headings = await page.$$eval(".heading", (headingsText) => {
                 return headingsText.map((txt) => txt.textContent.trim());
             });
 
-            let topStoryImage = await page.$$eval(
-                ".top-story__image",
-                (imgSrc) => {
-                    return imgSrc.map((i) => i.getAttribute("src"));
-                }
-            );
-
-            let topStoryURL = await page.$$eval(
-                ".top-story-container",
-                (url) => {
-                    return url.map((u) =>
-                        u.children[0].children[1].children[0].children[0].getAttribute(
-                            "href"
-                        )
-                    );
-                }
-            );
-
-            await page.evaluate(() => {
-                window.scrollTo(0, window.scrollY);
-            });
-
+            // collecting urls for articles
             const urls = await page.$$eval(".teaser-wrapper", (teaser) => {
                 return teaser.map((t) =>
                     t.children[0].children[0].children[0].children[0].getAttribute(
@@ -56,6 +37,7 @@ app.get(
             // // Scroll to the bottom of the page with puppeteer-autoscroll-down
             await scrollPageToBottom(page);
 
+            // collecting imgs for articles
             let images = await page.$$eval(
                 ".default-teaser__image",
                 (imgSrc) => {
@@ -64,26 +46,26 @@ app.get(
             );
 
             browser.close();
+
             const newsFromTVN = new Map();
+
             headings.forEach((header, index) => {
-                if (index === 0) {
-                    newsFromTVN.set(header, [topStoryImage, topStoryURL]);
-                } else if (images[index] && index < 10) {
+                if (images[index] && index < 10) {
                     newsFromTVN.set(header, [images[index], urls[index]]);
                 }
             });
+
             return newsFromTVN;
         };
 
         const getFromTVP = async () => {
-            const browser = await puppeteer.launch({ headless: false });
+            const browser = await puppeteer.launch();
             const page = await browser.newPage();
             await page.goto("https://www.tvp.info/191866/polska", {
                 waitUntil: "load",
             });
 
-            // headings[0] - top story heading
-
+            // get all visibile headings
             let headings = await page.$$eval(
                 ".main-mesh-box__title",
                 (headingsText) => {
@@ -91,12 +73,12 @@ app.get(
                 }
             );
 
+            // collecting imgs for articles
             let images = await page.$$eval(".img-responsive", (imgSrc) => {
-                return imgSrc.map(
-                    (i) => "https://www.tvp.info/" + i.getAttribute("src")
-                );
+                return imgSrc.map((i) => i.getAttribute("src"));
             });
 
+            // collecting urls for articles
             let urls = await page.$$eval(".main-mesh-box__image", (url) => {
                 return url.map((u) => u.getAttribute("href"));
             });
@@ -118,10 +100,7 @@ app.get(
         const tvn = await getFromTVN();
         const tvp = await getFromTVP();
 
-        console.log(tvn);
-        console.log(tvp);
-
-        res.status(200);
+        res.json({ tvn: [...tvn], tvp: [...tvp] });
     }
 );
 

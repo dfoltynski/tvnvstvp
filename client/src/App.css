@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
 .App {
+    font-family: "Poppins", sans-serif;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,13 +14,11 @@
     flex-direction: column;
     align-items: center;
     display: flex;
-    background-color: brown;
 }
 .tvn {
     flex-direction: column;
     align-items: center;
     display: flex;
-    background-color: burlywood;
 }
 
 img {
@@ -37,14 +38,14 @@ a {
 
 p {
     border-radius: 100px;
-    background-color: chartreuse;
+    background-color: #fce00d;
     padding: 0.4em 1em;
     transition: 0.2s ease-in-out;
 }
 
 p:hover {
     transition: 0.2s ease-in-out;
-    background-color: #74e700;
+    background-color: #fcba03;
 }
 
 button {
@@ -75,6 +76,14 @@ h2 {
     padding: 1em;
     display: inline;
     color: #3c3c3c;
+}
+
+h3 {
+    font-weight: 500;
+    padding: 0.5em 1em;
+    border-radius: 20px;
+    color: #3c3c3c;
+    background-color: #fce00d;
 }
 
 @media screen and (max-width: 1250px) {

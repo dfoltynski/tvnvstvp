@@ -23,7 +23,7 @@ function App() {
     return isLoaded ? (
         <div className="App">
             <div className="tvp">
-                <h1>TVP</h1>
+                <h3>TVP wiadomości</h3>
                 {tvp?.map((p) =>
                     console.log(
                         "TITLE: " + p[0],
@@ -40,7 +40,7 @@ function App() {
                 ))}
             </div>
             <div className="tvn">
-                <h1>TVN</h1>
+                <h3>TVN wiadomości</h3>
                 {tvn?.map((p) => (
                     <NewsTile
                         title={p[0]}

@@ -4,3 +4,4 @@
 
 -   [ ] do it realtime with socketio
 -   [ ] make possible to change category from poland to world
+-   [ ] make it responsive

@@ -2,12 +2,12 @@
 
 .App {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
+    /* height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
-    grid-template-areas: "tvn tvp";
+    grid-template-areas: "tvn tvp"; */
 }
 
 .tvp {
@@ -36,7 +36,7 @@ a {
     text-decoration: none;
 }
 
-p {
+.readAboutThis {
     border-radius: 100px;
     background-color: #91b8ff;
     padding: 0.4em 1em;
@@ -44,13 +44,13 @@ p {
     color: #1c386b;
 }
 
-p:hover {
+.readAboutThis:hover {
     transition: 0.2s ease-in-out;
     background-color: #1c386b;
     color: #91b8ff;
 }
 
-button {
+.newsTile {
     position: relative;
     align-items: center;
     display: flex;
@@ -63,12 +63,22 @@ button {
     border: none;
     width: 80%;
     min-height: 10rem;
+    max-height: 15rem;
     transition: 0.2s ease-in-out;
 }
 
-button:hover {
+.newsTile:hover {
     transition: 0.2s ease-in-out;
     transform: scale(0.993);
+}
+
+.tvptvn {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "tvn tvp";
 }
 
 h2 {
@@ -119,14 +129,23 @@ h3 {
         right: 100vw;
     }
 
+    .tvptvn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .switch {
+        margin: 1em 0;
         display: flex;
         align-items: center;
         padding: 0 1em;
         border-radius: 100px;
         background-color: #f0f0f0;
         position: relative;
-        height: 2em;
+        height: 3em;
+        width: 50%;
         z-index: -2;
     }
 
@@ -137,7 +156,7 @@ h3 {
         top: 0;
         left: 0;
         height: 100%;
-        width: 55%;
+        width: 50%;
         background-color: #1c386b;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
@@ -147,19 +166,19 @@ h3 {
     }
 
     .switch-container {
-        margin: 2em;
-        padding: 0 1em;
-        border-radius: 100px;
+        margin: 2em 0;
         position: relative;
-        height: 2em;
+        display: flex;
+        justify-content: center;
     }
 
     .switch-label {
+        margin: auto;
         pointer-events: none;
         color: #91b8ff;
         font-weight: 500;
         font-size: 16px;
-        padding: 0 1em;
+        /* width: 100%; */
     }
 
     input[type="checkbox"] {
@@ -171,7 +190,7 @@ h3 {
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 478px) {
     .App {
         display: flex;
         font-family: "Poppins", sans-serif;
@@ -190,4 +209,7 @@ h3 {
         position: absolute;
         right: 100vw;
     }
+}
+
+@media screen and (max-width: 320px) {
 }

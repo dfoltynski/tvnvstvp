@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 interface IRef {
     sliderRef: React.RefObject<HTMLSpanElement>;
-    tvpRef: React.RefObject<HTMLSpanElement>;
-    tvnRef: React.RefObject<HTMLSpanElement>;
+    tvpRef: React.RefObject<HTMLParagraphElement>;
+    tvnRef: React.RefObject<HTMLParagraphElement>;
 }
 
 const Slider: React.FC<IRef> = ({ sliderRef, tvpRef, tvnRef }) => {
@@ -24,7 +24,7 @@ const Slider: React.FC<IRef> = ({ sliderRef, tvpRef, tvnRef }) => {
             if (sliderNode && tvpNode && tvnNode) {
                 tvpNode.style.color = "#1c386b";
                 tvnNode.style.color = "#91b8ff";
-                sliderNode.style.transform = "translateX(80%)";
+                sliderNode.style.transform = "translateX(100%)";
             }
         }
 
@@ -35,13 +35,13 @@ const Slider: React.FC<IRef> = ({ sliderRef, tvpRef, tvnRef }) => {
         <div className="switch-container" onClick={switchToTVNorTVP}>
             <label className="switch">
                 <span ref={sliderRef} className="switch-input"></span>
-                <span ref={tvpRef} className="switch-label">
+                <p ref={tvpRef} className="switch-label">
                     TVP
-                </span>
+                </p>
                 <input type="checkbox" />
-                <span ref={tvnRef} className="switch-label">
+                <p ref={tvnRef} className="switch-label">
                     TVN
-                </span>
+                </p>
             </label>
         </div>
     );

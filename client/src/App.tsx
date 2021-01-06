@@ -6,11 +6,12 @@ import axios from "axios";
 function App() {
     const [tvn, setTvn] = useState<[]>();
     const [tvp, setTvp] = useState<[]>();
+    const [showSlider, setShowSlider] = useState<boolean>();
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-    const tvnRef = createRef<HTMLParagraphElement>();
-    const tvpRef = createRef<HTMLParagraphElement>();
-    const sliderRef = createRef<HTMLSpanElement>();
+    const tvpNodeRef = createRef<HTMLDivElement>();
+    const tvnNodeRef = createRef<HTMLDivElement>();
+    // const sliderRef = createRef<HTMLSpanElement>();
 
     useEffect(() => {
         // (async () => {
@@ -21,24 +22,31 @@ function App() {
         //     setIsLoaded(true);
         // })();
         setIsLoaded(true);
+
+        const windowResize = () => {
+            console.log(window.innerWidth);
+            if (window.innerWidth <= 1020) {
+                setShowSlider(true);
+            } else {
+                setShowSlider(false);
+            }
+        };
+
+        window.addEventListener("resize", windowResize);
+        windowResize();
+
+        return () => window.removeEventListener("resize", windowResize);
     }, []);
 
     return isLoaded ? (
         <div className="App">
+            {showSlider ? (
+                <Slider tvnNodeRef={tvnNodeRef} tvpNodeRef={tvpNodeRef} />
+            ) : null}
             <div className="tvptvn">
-                {/* {window.innerWidth <= 425 ? (
-                    <Slider
-                        sliderRef={sliderRef}
-                        tvpRef={tvpRef}
-                        tvnRef={tvnRef}
-                    />
-                ) : null} */}
-                {/* <Slider
-                        sliderRef={sliderRef}
-                        tvpRef={tvpRef}
-                        tvnRef={tvnRef}
-                    /> */}
-                <div className="tvp">
+                <div ref={tvpNodeRef} className="tvp">
+                    {showSlider ? null : <h3>TVP wiadomości</h3>}
+
                     <NewsTile
                         title={
                             '1. Rada WUM odroczyła posiedzenie "do dnia dogłębnego zapoznania się z treścią raportu"'
@@ -46,7 +54,7 @@ function App() {
                         imgSrc={
                             "https://tvn24.pl/najnowsze/cdn-zdjecie-g5f42x-wum-4920445/alternates/LANDSCAPE_840"
                         }
-                        articleUrl={"https://www.tvp.info"}
+                        articleUrl={"https://www.tv2p.info"}
                     />
                     <NewsTile
                         title={
@@ -118,7 +126,9 @@ function App() {
                             />
                         ))}
                     </div> */}
-                <div className="tvn">
+                <div ref={tvnNodeRef} className="tvn">
+                    {showSlider ? null : <h3>TVN wiadomości</h3>}
+
                     <NewsTile
                         title={
                             "Rektor Gaciong złapany na próbie wytropienia studentów prowadzących ZUM na WUM"

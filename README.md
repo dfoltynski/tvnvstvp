@@ -1,7 +1,7 @@
 # Here you can compare news from TVN and TVP realtime
 
-# TODO
+![](https://i.imgur.com/lGCa3DW.png)
 
--   [ ] do it realtime with socketio
--   [ ] make possible to change category from poland to world
--   [x] make it responsive
+![](https://i.imgur.com/qNylalq.png)
+
+![](https://i.imgur.com/id9gj8q.png)

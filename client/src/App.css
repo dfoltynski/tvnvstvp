@@ -14,11 +14,13 @@
     flex-direction: column;
     align-items: center;
     display: flex;
+    transition: all 0.5s ease-in-out;
 }
 .tvn {
     flex-direction: column;
     align-items: center;
     display: flex;
+    transition: all 0.5s ease-in-out;
 }
 
 img {
@@ -98,6 +100,63 @@ h3 {
     background-color: #1c386b;
 }
 
+.switch {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    border-radius: 100px;
+    background-color: #f0f0f0;
+    position: relative;
+    height: 3em;
+    width: 50%;
+    z-index: -2;
+}
+
+.switch-input {
+    z-index: -1;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #1c386b;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.switch-container {
+    margin: 2em 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.switch-label {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    margin: auto;
+    pointer-events: none;
+    color: #91b8ff;
+    font-weight: 500;
+    font-size: 16px;
+    /* width: 100%; */
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
 @media screen and (max-width: 1280px) {
     h2 {
         font-size: 16px;
@@ -114,7 +173,7 @@ h3 {
 
     .tvn {
         position: absolute;
-        right: 100vw;
+        transform: translateX(-100%);
     }
 }
 
